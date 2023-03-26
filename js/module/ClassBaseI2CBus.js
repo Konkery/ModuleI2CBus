@@ -57,7 +57,7 @@ class ClassBaseI2CBus {
         //далее инициализируем контейнер первыми тремя шинами которые предустановлены в Espruino
         let i = 1;
         let StrI2c = 'I2C' + i;
-        while (!(eval('typeof '+StrTmp+' === \'undefined\''))) {
+        while (!(eval('typeof '+StrI2c+' === \'undefined\''))) {
             if (eval(StrI2c+' instanceof I2C')) {
                     this.I2Cbus[StrI2c] = {IDbus: StrI2c, Used: false};
                 }
@@ -105,4 +105,4 @@ class ClassBaseI2CBus {
     }
 }
 
-exports = ClassBaseI2CBus; //экспортируем класс, ВНИМАНИЕ - именно класс а не объект!
+exports = ClassBaseI2CBus;
