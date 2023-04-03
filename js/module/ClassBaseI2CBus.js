@@ -54,16 +54,22 @@ class ClassBaseI2CBus {
         this.Pattern = 'I2C'; //базовая часть всех ключей объектов-шин I2C, полное название получается конкатенацией с текущим индексом
         this.IndexBus = 10; //начальный индекс soft шин
 
-        //далее инициализируем контейнер первыми тремя шинами которые предустановлены в Espruino
+        this.Init();
+    }
+    /**
+     * @method
+     * Метод Init добавляет в контейнер шины, которые уже созданы в Espruino
+     */
+    Init() {
         let i = 1;
         let StrI2c = 'I2C' + i;
         while (!(eval('typeof '+StrI2c+' === \'undefined\''))) {
             if (eval(StrI2c+' instanceof I2C')) {
-                    this.I2Cbus[StrI2c] = {IDbus: StrI2c, Used: false};
+                    this.I2Cbus[StrI2c] = {IDbus: eval(StrI2c), Used: false};
                 }
             i++;
             StrI2c = 'I2C' + i;
-        }       
+        }
     }
     /**
      * @method
