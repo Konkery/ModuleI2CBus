@@ -9,5 +9,5 @@ try {
   console.log(bus);
 }
 catch(e) {
-  console.log('Error!');
+  console.log('Error>> ' + e.Message + ' Code>> ' + e.Code);
 }
