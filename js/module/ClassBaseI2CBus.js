@@ -84,11 +84,11 @@ class ClassBaseI2CBus {
     AddBus(_opt) {
         /*проверить переданные параметры шины на валидность*/
         if ((typeof (_opt.sda) === 'undefined') || (typeof (_opt.scl) === 'undefined') || (typeof (_opt.bitrate) === 'undefined')) {
-           //throw new ClassAppError();
+           throw new err('Test', 10);
         }
 
         if (!(_opt.sda instanceof Pin) || !(_opt.scl instanceof Pin) || !(Number.isInteger(_opt.bitrate))){
-           //throw new ClassAppError();
+           throw new err('Test', 20);
         }
 
         /*все необходимые для создания шины параметры переданы -> создать и инициализировать новую шину*/
