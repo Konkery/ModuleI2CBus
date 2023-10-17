@@ -101,7 +101,7 @@ class ClassBaseI2CBus {
         
         this._I2Cbus[bus_name].IDbus.setup(_opt); //инициализировать шину
 
-        ++this.IndexBus; //увеличить индекс шины
+        ++this._IndexBus; //увеличить индекс шины
         
         return {
                 NameBus: bus_name, //имя созданной шины
