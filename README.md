@@ -33,8 +33,8 @@ this._I2CBus[] = {
 <div style = "color: #555">
 
 - <mark style="background-color: lightblue">_I2Cbus</mark> - массив-контейнер с I2C шинами;
-- <mark style="background-color: lightblue">_pattern</mark> - строка-ключ, для всех объектов шин;
-- <mark style="background-color: lightblue">_indexBus</mark> - индекс софтверной шины. Начальный - 10, конкатенацией с полем _pattern составляет имя нового объекта-шины.
+- <mark style="background-color: lightblue">_Pattern</mark> - строка-ключ, для всех объектов шин;
+- <mark style="background-color: lightblue">_IndexBus</mark> - индекс софтверной шины. Начальный - 10, конкатенацией с полем _pattern составляет имя нового объекта-шины.
 </div>
 
 ### Методы
