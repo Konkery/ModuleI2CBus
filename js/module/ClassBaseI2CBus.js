@@ -50,9 +50,9 @@ class ClassBaseI2CBus {
             ClassBaseI2CBus.prototype.Instance = this;
         }
 
-        this.I2Cbus = {}; //контейнер объектов-шин I2C
-        this.Pattern = 'I2C'; //базовая часть всех ключей объектов-шин I2C, полное название получается конкатенацией с текущим индексом
-        this.IndexBus = 10; //начальный индекс soft шин
+        this._I2Cbus = {}; //контейнер объектов-шин I2C
+        this._Pattern = 'I2C'; //базовая часть всех ключей объектов-шин I2C, полное название получается конкатенацией с текущим индексом
+        this._IndexBus = 10; //начальный индекс soft шин
 
         this.Init();
     }
@@ -65,7 +65,7 @@ class ClassBaseI2CBus {
         let StrI2c = 'I2C' + i;
         while (!(eval('typeof '+StrI2c+' === \'undefined\''))) {
             if (eval(StrI2c+' instanceof I2C')) {
-                    this.I2Cbus[StrI2c] = {IDbus: eval(StrI2c), Used: false};
+                    this._I2Cbus[StrI2c] = {IDbus: eval(StrI2c), Used: false};
                 }
             i++;
             StrI2c = 'I2C' + i;
@@ -92,21 +92,21 @@ class ClassBaseI2CBus {
         }
 
         /*все необходимые для создания шины параметры переданы -> создать и инициализировать новую шину*/
-        let bus_name = this.Pattern + this.IndexBus; //полное имя ключа текущей шины
+        let bus_name = this._Pattern + this._IndexBus; //полное имя ключа текущей шины
         
-        this.I2Cbus[bus_name] = {
+        this._I2Cbus[bus_name] = {
             IDbus: new I2C(), //сгенерировать шину
             Used: true //индикатор использования шины в true
         };
         
-        this.I2Cbus[bus_name].IDbus.setup(_opt); //инициализировать шину
+        this._I2Cbus[bus_name].IDbus.setup(_opt); //инициализировать шину
 
         ++this.IndexBus; //увеличить индекс шины
         
         return {
                 NameBus: bus_name, //имя созданной шины
                 
-                IDbus:   this.I2Cbus[bus_name].IDbus //объект шина I2C
+                IDbus:   this._I2Cbus[bus_name].IDbus //объект шина I2C
             };
     }
 }
