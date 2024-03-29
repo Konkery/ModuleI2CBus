@@ -1,6 +1,6 @@
 <div style = "font-family: 'Open Sans', sans-serif; font-size: 16px">
 
-# ModuleBaseI2CBus
+# ModuleI2CBus
 <p align="center">
   <img src="./res/logo.png" width="400" title="hover text">
 </p>
